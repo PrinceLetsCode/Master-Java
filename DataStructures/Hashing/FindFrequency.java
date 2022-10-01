@@ -1,6 +1,7 @@
 package DataStructures.Hashing;
 
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -59,7 +60,7 @@ public class FindFrequency {
 
     public static void find_freq_app_3(int[] arr) {
 
-        Map < Integer, Integer > map = new HashMap < Integer, Integer > ();
+        Map < Integer, Integer > map = new HashMap<>();
         for (int i = 0; i < arr.length; i++) {
             if (map.containsKey(arr[i]))
                 map.put(arr[i], map.get(arr[i]) + 1);
