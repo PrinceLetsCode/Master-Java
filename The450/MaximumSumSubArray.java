@@ -45,7 +45,9 @@ public class MaximumSumSubArray {
     }*/
 
 
+    // Doesn't work if all the elements in the array are negative.
     public static void Kadanes_algo(int[] arr) {
+
 
         int max_sum=0;
         int cur_sum=0;
@@ -67,10 +69,25 @@ public class MaximumSumSubArray {
     }
 
 
+    // works for if all are negative elements in array.
+
+    public static int maxSubArray(int[] nums) {
+        int max_sum,cur_sum;
+        max_sum=cur_sum=nums[0];
+        for(int i=1;i<nums.length;i++)
+        {
+            cur_sum=Math.max(nums[i],cur_sum+nums[i]);
+            max_sum=Math.max(cur_sum,max_sum);
+        }
+        return max_sum;
+    }
+
+
     public static void main(String[] args) {
 
         int[] arr = {-5, 4, 6, -3, 4, -1};
-        Kadanes_algo(arr);
+//        Kadanes_algo(arr);
+        System.out.println(maxSubArray(arr));
         
     }
 
