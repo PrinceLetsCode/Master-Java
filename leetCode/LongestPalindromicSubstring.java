@@ -2,7 +2,6 @@ package leetCode;
 
 public class LongestPalindromicSubstring {
 
-
     private static String isPalindrome(String s) {
 
         //if the string is empty or has only one character, then it is a palindrome.
