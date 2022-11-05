@@ -1,12 +1,41 @@
 package leetCode;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+import java.util.*;
 
 public class ThreeSum {
 
 
+    public static List<List<Integer>> find_three_sum_brute(int []nums)  // Time complexity: O(n^3)
+    {
+        List<List<Integer>> result = new ArrayList<>();
+        Arrays.sort(nums);
+        for(int i=0;i<nums.length-2;i++)
+        {
+            for(int j=i+1;j<nums.length-1;j++)
+            {
+                for(int k=j+1;k<nums.length;k++)
+                {
+                    if(nums[i]+nums[j]+nums[k]==0)
+                    {
+                        List<Integer> temp = new ArrayList<>();
+                        temp.add(nums[i]);
+                        temp.add(nums[j]);
+                        temp.add(nums[k]);
+                        if (!result.contains(temp))
+                        {
+                            result.add(temp);
+                        }
+
+                    }
+                }
+            }
+        }
+
+        return result;
+
+    }
+
+    // Time Complexity: O(n^2)
     public static List<List<Integer>> find_three_sum(int[] nums) {
 
         // create a list of list to store the result
@@ -72,7 +101,11 @@ public class ThreeSum {
     public static void main(String[] args) {
 
         int[] arr = new int[]{-1, 0, 1, 2, -1, -4};
-        System.out.println(find_three_sum(arr));
+        System.out.println(find_three_sum_brute(arr));
 
     }
 }
+
+
+
+
