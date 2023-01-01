@@ -13,6 +13,7 @@ public class CountDigitsFromStrings {
                 continue;
             } else if (str.charAt(i) >= '1' && str.charAt(i) <= '9') {
                 pos++;
+
             }
             else {
                 zero++;
