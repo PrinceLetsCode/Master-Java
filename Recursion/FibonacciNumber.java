@@ -2,9 +2,9 @@ package Recursion;
 
 public class FibonacciNumber {
     public static void main(String[] args) {
-        System.out.println(fibonacciNumber_Iteration(5));
-        System.out.println(fibonacciNumber_Recursion_functional(5));
-        System.out.println(fibonacciNumber_Recursion_parameterized(5,0,1));
+//        System.out.println(fibonacciNumber_Iteration(4));
+        System.out.println(fibonacciNumber_Recursion_functional(4));
+//        System.out.println(fibonacciNumber_Recursion_parameterized(5,0,1));
     }
 
     private static int fibonacciNumber_Recursion_parameterized(int i, int i1, int i2) {
@@ -15,10 +15,10 @@ public class FibonacciNumber {
     }
 
     private static int fibonacciNumber_Recursion_functional(int n) {
-        if (n >= 1) {
+        if(n<=1){
             return n;
         }
-        return fibonacciNumber_Recursion_functional(n - 1) + fibonacciNumber_Recursion_functional(n - 2);
+        return fibonacciNumber_Recursion_functional(n-1)+fibonacciNumber_Recursion_functional(n-2);
     }
 
 

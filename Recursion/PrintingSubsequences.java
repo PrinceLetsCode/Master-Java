@@ -5,7 +5,7 @@ import java.util.ArrayList;
 public class PrintingSubsequences {
     public static void main(String[] args) {
         String str = "abc";
-        printSubsequences(str,"");
+//        printSubsequences(str,"");
         ArrayList<Character> list = new ArrayList<>();
         printSubsequences(list,0,str,str.length());
 
