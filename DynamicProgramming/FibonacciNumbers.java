@@ -15,6 +15,12 @@ public class FibonacciNumbers {
         // declare a vector to store the fibonacci numbers
         Vector<Integer> dp = new Vector<>(6);
 
+        // using array
+        int [] dp_arr = new int[n+1];
+        for (int i = 0; i < n + 1; i++) {
+            dp_arr[i] = -1;
+        }
+
         // initialize the vector with -1 to indicate that the fibonacci number is not calculated yet
         for (int i = 0; i < n + 1; i++) {
             dp.add(-1);
@@ -24,8 +30,22 @@ public class FibonacciNumbers {
         System.out.println(fib(n,dp));
         System.out.println(fib_2(n,dp));
         System.out.println(fib_3(n));
+        System.out.println(fib(n,dp_arr));
     }
 
+
+    private static int fib(int n, int [] dp) {
+        // base case
+        if(n<=1) return n;
+
+        // if the fibonacci number is already calculated, then return it
+        if(dp[n]!=-1) return dp[n];
+
+        // calculate the fibonacci number and store it in the dp array
+        dp[n] = fib(n-1,dp) + fib(n-2,dp);
+        // calculate the fibonacci number
+        return dp[n];
+    }
 
 
 
@@ -35,6 +55,7 @@ public class FibonacciNumbers {
     private static int fib(int n, Vector<Integer> dp) {
         // base case
         if(n<=1) return n;
+
 
         // if the fibonacci number is already calculated, then return it
         if(dp.get(n)!=-1) return dp.get(n);

@@ -2,6 +2,12 @@ package Algorithms.sorting;
 
 public class Selection_Sort {
 
+    public static void main(String[] args) {
+
+        int arr[] = {12, 29, 25, 8, 32, 17, 40};
+        selection_sort(arr);
+
+    }
 
     public static void selection_sort(int[] arr) {
 
@@ -37,11 +43,4 @@ public class Selection_Sort {
 
     }
 
-
-    public static void main(String[] args) {
-
-        int arr[] = {12, 29, 25, 8, 32, 17, 40};
-        selection_sort(arr);
-
-    }
 }

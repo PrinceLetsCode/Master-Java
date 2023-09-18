@@ -34,7 +34,7 @@ public class LongestPalindromicSubstring {
 
     public static void main(String[] args) {
 
-        String s = "ccbbbbccaba";
+        String s = "abacdabbabbababab";
         System.out.println(isPalindrome(s));
 
     }

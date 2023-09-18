@@ -1,7 +1,9 @@
 package The450;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.LinkedList;
+import java.util.List;
 
 public class MergeIntervals {
 
@@ -41,9 +43,39 @@ public class MergeIntervals {
     }
 
 
+    /*
+
+    Here's a dry run of the code with a sample input array intervals = [[1,3],[2,6],[8,10],[15,18]]:
+    First, the input array intervals is sorted based on the first element of each sub-array. The sorted array is:
+
+    intervals = [[1,3],[2,6],[8,10],[15,18]]
+    Initialize a linked list merged to store the merged intervals.
+
+    iteration	interval	merged
+            1	[1,3]	    [[1,3]]
+            2	[2,6]	    [[1,6]]
+            3	[8,10]	    [[1,6],[8,10]]
+            4	[15,18]	    [[1,6],[8,10],[15,18]]
+
+    For each interval interval in the sorted array intervals, the following steps are performed:
+
+    a. If merged is empty or the last sub-array in merged has its end value less than the start value of interval,
+       add interval to merged.
+    b. Otherwise, merge the current interval interval with the last sub-array in merged by updating the end value
+       of the last sub-array in merged to be the maximum of its current end value and the end value of interval.
+
+    Finally, the linked list merged is converted to an array result of size merged.size() and returned.
+    The resulting merged intervals are:
+
+    result = [[1,6],[8,10],[15,18]]
+    */
+
+
+
     public static void main(String[] args) {
         int arr[][] = {{1,3}, {2, 6}, {8, 10}, {15, 18}};
-        int [][]result=merge_intervals(arr);
+//        int [][]result=merge_intervals(arr);
+        int [][]result=merge(arr);
 
         for (int i = 0; i < result.length; i++) {
             for (int j = 0; j < result[0].length; j++) {
@@ -51,6 +83,35 @@ public class MergeIntervals {
             }
             System.out.println();
         }
+    }
+
+    // brute force solution
+    public static int[][] merge(int[][] intervals) {
+
+        List<int[]> result = new ArrayList<>();
+
+        for(int i=0; i<intervals.length; i++) {
+            int[] interval = intervals[i];
+            int start = interval[0];
+            int end = interval[1];
+
+            for(int j=i+1; j<intervals.length; j++) {
+                int[] nextInterval = intervals[j];
+                int nextStart = nextInterval[0];
+                int nextEnd = nextInterval[1];
+
+                if(nextStart <= end) {
+                    start = Math.min(start, nextStart);
+                    end = Math.max(end, nextEnd);
+                    i++;
+                }
+            }
+
+            result.add(new int[]{start, end});
+        }
+
+        return result.toArray(new int[result.size()][]);
+
     }
 
 }

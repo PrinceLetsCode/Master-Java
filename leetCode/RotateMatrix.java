@@ -12,13 +12,31 @@ public class RotateMatrix {
         }
     }
 
-    public static void rotate(int [][] matrix){
+
+    //    using extra space
+    //    TIME COMPLEXITY: O(n^2)
+    //    SPACE COMPLEXITY: O(n^2)
+    private static void rotate_brute(int[][] matrix) {
         int n = matrix.length;
-        for (int i = 0; i < (n + 1) / 2; i ++) {
+        int[][] res = new int[n][n];
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < n; j++) {
+                res[j][n - 1 - i] = matrix[i][j];
+            }
+        }
+    }
+
+
+    //    in-place
+    //    TIME COMPLEXITY: O(n^2)
+    //    SPACE COMPLEXITY: O(1)
+    public static void rotate(int[][] matrix) {
+        int n = matrix.length;
+        for (int i = 0; i < (n + 1) / 2; i++) {
             for (int j = 0; j < n / 2; j++) {
                 int temp = matrix[n - 1 - j][i];
                 matrix[n - 1 - j][i] = matrix[n - 1 - i][n - j - 1];
-                matrix[n - 1 - i][n - j - 1] = matrix[j][n - 1 -i];
+                matrix[n - 1 - i][n - j - 1] = matrix[j][n - 1 - i];
                 matrix[j][n - 1 - i] = matrix[i][j];
                 matrix[i][j] = temp;
             }
@@ -58,7 +76,6 @@ public class RotateMatrix {
     a method that transposes the matrix on the other diagonal, and another that reflects from top to bottom. You can
     test your functions by printing out the matrix before and after each operation. Finally, use your functions to
     find three more solutions to this problem. Each solution uses two matrix operations.
-
 
     Interview Tip: Terrified of being asked this question in an interview? Many people are: it can be intimidating due
     to the fiddly logic. Unfortunately, if you do a lot of interviewing, the probability of seeing it at least once is

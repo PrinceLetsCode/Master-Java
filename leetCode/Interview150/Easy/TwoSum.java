@@ -89,7 +89,7 @@ public class TwoSum {
         int[] arr = {3, 2, 4};
         int target = 6;
 
-        int []result=two_sum_using_hashMap(arr,target);
+        int []result=twoSum(arr,target);
 
         for (int i = 0; i < result.length; i++) {
             System.out.println(result[i]);

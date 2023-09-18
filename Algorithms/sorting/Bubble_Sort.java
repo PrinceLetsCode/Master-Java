@@ -8,8 +8,8 @@ public class Bubble_Sort {
 
         int n=arr.length;
         /*
-        outer loop is for passes. it runs for n-1 times because at after the completion of n-1 passes the
-        remaining element will already be sorted.
+            outer loop is for passes. it runs for n-1 times because at after the completion of n-1 passes the
+            remaining element will already be sorted.
         */
         for (int i = 0; i < n-1; i++) {
 
@@ -82,7 +82,7 @@ public class Bubble_Sort {
 
     public static void main(String[] args) {
         int arr[] = {12, 29, 25, 8, 32, 17, 40};
-//        optimized_bubble_sort(arr);
+        optimized_bubble_sort(arr);
 
     }
 }

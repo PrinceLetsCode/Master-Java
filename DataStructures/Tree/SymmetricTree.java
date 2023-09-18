@@ -4,14 +4,24 @@ import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 
+import static DataStructures.Tree.SymmetricTree.isMirror;
+
 public class SymmetricTree {
-
-
-    public boolean isSymmetric_1(TreeNode root) {
+    public static void main(String[] args) {
+        TreeNode root = new TreeNode(1);
+        root.left = new TreeNode(2);
+        root.right = new TreeNode(2);
+        root.left.left = new TreeNode(3);
+        root.left.right = new TreeNode(4);
+        root.right.left = new TreeNode(4);
+        root.right.right = new TreeNode(3);
+        System.out.println(isSymmetric_1(root));
+    }
+    public static boolean isSymmetric_1(TreeNode root) {
         return root == null || isMirror(root.left, root.right); // if root is null, return true else call isMirror.
 
     }
-    boolean isMirror(TreeNode node1, TreeNode node2) { // check if node1 and node2 are mirror images of each other.
+    public static boolean  isMirror(TreeNode node1, TreeNode node2) { // check if node1 and node2 are mirror images of each other.
         if (node1 == null && node2 == null) return true; // if both are null, return true.
 
         if (node1 == null || node2 == null) return false; // if one is null and other is not, return false.
@@ -22,20 +32,6 @@ public class SymmetricTree {
         // check if left of node1 is mirror image of right of node2 and right of node1 is mirror image of left of node2.
         return isMirror(node1.left, node2.right) && isMirror(node1.right, node2.left);
     }
-
-
-
-    public static void main(String[] args) {
-        TreeNode root = new TreeNode(1);
-        root.left = new TreeNode(2);
-        root.right = new TreeNode(2);
-        root.left.left = new TreeNode(3);
-        root.left.right = new TreeNode(4);
-        root.right.left = new TreeNode(4);
-        root.right.right = new TreeNode(3);
-        System.out.println(isSymmetric(root));
-    }
-
 
 
     // can you find out why this is not working for few test cases?
